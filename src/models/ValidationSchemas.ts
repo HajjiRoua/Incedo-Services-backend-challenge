@@ -53,7 +53,7 @@ export type Artist = z.infer<typeof ArtistResponseSchema>;
 
 
 export const SearchNameRequestSchema = z.object({
-    artistName: z.string(),
+    artistName: z.string().min(1, { message: "artistName is required and cannot be empty." }),
     page: z.number().optional(),
     filename: z.string().optional(),
 });
